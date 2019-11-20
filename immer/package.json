@@ -1,0 +1,17 @@
+{
+  "name": "immer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "immer": "^5.0.0"
+  },
+  "devDependencies": {
+    "immer": "^5.0.0"
+  }
+}
