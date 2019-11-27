@@ -4,3 +4,6 @@
 
 
 ### upload https://www.jianshu.com/p/0d1421df0e0d
+
+
+2. have fan demo reactPdf and other translate
