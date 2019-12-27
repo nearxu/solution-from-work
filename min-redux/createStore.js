@@ -1,13 +1,23 @@
 // https://blog.seosiwei.com/detail/13
 
-function createStore(reducer, enhancer) {
-  if (enhancer) {
-    return enhancer(createStore(reducer))
+function createStore(reducer, preState, enhancer) {
+  if (typeof preState === 'function' && typeof enhancer === 'undefined') {
+    enhancer = preState
+    preState = undefined
+  }
+  if (typeof enhancer !== 'undefined') {
+    if (typeof enhancer !== 'function') {
+      console.log('error enhancer')
+    }
+    return enhancer(createStore)(reducer, preState)
+  }
+  if (typeof reducer !== 'function') {
+    console.log('error reduce')
   }
 
   // some error
   // let currentState = initState;
-  let currentState
+  let currentState = preState
 
   // let currentReduce = reducer;
   function getState() {
@@ -61,13 +71,13 @@ function todos(state = [], action) {
   }
 }
 
-const store = createStore(todos, ['createState'])
+// const store = createStore(todos, ['createState'])
 
-console.log(store.getState())
+// console.log(store.getState())
 
-store.dispatch({ type: 'ADD_TODO', text: 'add text' })
+// store.dispatch({ type: 'ADD_TODO', text: 'add text' })
 
-console.log(store.getState())
+// console.log(store.getState())
 
 // v2 subscribe
 
@@ -81,14 +91,14 @@ function handleChange() {
   }
 }
 
-let unSubscribe = store.subscribe(handleChange)
+// let unSubscribe = store.subscribe(handleChange)
 
-store.dispatch({
-  type: 'ADD_TODO',
-  text: 'add subscribe for every action dispath'
-})
+// store.dispatch({
+//   type: 'ADD_TODO',
+//   text: 'add subscribe for every action dispath'
+// })
 
-store.dispatch({ type: 'ADD_TODO', text: 'please subscibe' })
-console.log(store.getState())
+// store.dispatch({ type: 'ADD_TODO', text: 'please subscibe' })
+// console.log(store.getState())
 
 module.exports = createStore

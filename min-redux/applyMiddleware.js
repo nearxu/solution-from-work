@@ -3,8 +3,8 @@ const createStore = require('./createStore')
 
 const applyMiddleware = (...middlewares) => {
   return createStore => {
-    return (reducer, enhancer) => {
-      const store = createStore(reducer, enhancer)
+    return (reducer, preState, enhancer) => {
+      const store = createStore(reducer, preState, enhancer)
       let dispatch = store.dispatch
       let chain = []
 
@@ -65,6 +65,8 @@ var store = createStore(
   reducer,
   applyMiddleware(middleware1, middleware2, middleware3)
 )
+
+console.log(store, 'store')
 
 store.dispatch({ type: 'MIDDLEWARE_TEST' })
 

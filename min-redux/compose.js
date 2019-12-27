@@ -29,6 +29,6 @@ function func3(num) {
   return num + 3
 }
 
-compose(func3, func2, func1)(0)
+// compose(func3, func2, func1)(0)
 
 module.exports = compose
