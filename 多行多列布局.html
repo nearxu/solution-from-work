@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin: 50px auto;
+        align-content: baseline;
+      }
+      .main span {
+        width: 132px;
+        height: 200px;
+        display: inline-block;
+        background-color: #666;
+        margin: 4px;
+      }
+      .main .emp {
+        height: 0;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+      <span>7</span>
+      <span>8</span>
+      <span>9</span>
+      <span>10</span>
+      <span>11</span>
+      <span class="emp">empty</span>
+    </div>
+  </body>
+</html>
